@@ -6,7 +6,7 @@ execute:
   echo: true
 
 book:
-  title: "Environmental Data Analysis"
+  title: "Disparity in Renewable Energy Development"
   author:
     - Kaiyan Xu (kx2198)
     - Xinyang Wang (xw2964)
