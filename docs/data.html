@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Environmental Data Analysis - 2&nbsp; Data</title>
+<title>Disparity in Renewable Energy Development - 2&nbsp; Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -89,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Environmental Data Analysis</a> 
+      <a href="./">Disparity in Renewable Energy Development</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/zjgxky/EnvironmentDataEDAV" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -142,8 +176,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description"><span class="header-section-number">2.1</span> Description</a></li>
-  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.2</span> Missing value analysis</a></li>
+  <li><a href="#description" id="toc-description" class="nav-link active" data-scroll-target="#description"><span class="header-section-number">2.1</span> Description</a>
+  <ul class="collapse">
+  <li><a href="#share-of-modern-renewables-in-total-final-energy-consumption" id="toc-share-of-modern-renewables-in-total-final-energy-consumption" class="nav-link" data-scroll-target="#share-of-modern-renewables-in-total-final-energy-consumption"><span class="header-section-number">2.1.1</span> Share of Modern Renewables in Total Final Energy Consumption (%):</a></li>
+  <li><a href="#world-energy-investment-2023" id="toc-world-energy-investment-2023" class="nav-link" data-scroll-target="#world-energy-investment-2023"><span class="header-section-number">2.1.2</span> World Energy Investment 2023:</a></li>
+  <li><a href="#fossil-fuel-subsidies" id="toc-fossil-fuel-subsidies" class="nav-link" data-scroll-target="#fossil-fuel-subsidies"><span class="header-section-number">2.1.3</span> Fossil Fuel Subsidies:</a></li>
+  <li><a href="#electricity-access" id="toc-electricity-access" class="nav-link" data-scroll-target="#electricity-access"><span class="header-section-number">2.1.4</span> Electricity Access:</a></li>
+  </ul></li>
+  <li><a href="#research-plan" id="toc-research-plan" class="nav-link" data-scroll-target="#research-plan"><span class="header-section-number">2.2</span> Research plan</a></li>
+  <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/zjgxky/EnvironmentDataEDAV/edit/main/data.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/zjgxky/EnvironmentDataEDAV/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -169,9 +210,142 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="description" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="description"><span class="header-section-number">2.1</span> Description</h2>
+<section id="share-of-modern-renewables-in-total-final-energy-consumption" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="share-of-modern-renewables-in-total-final-energy-consumption"><span class="header-section-number">2.1.1</span> Share of Modern Renewables in Total Final Energy Consumption (%):</h3>
+<p>It is downloaded from the website of the International Energy Agency (IEA). It contains over 275 countries and defined regional groupings from 1990 to 2021. This database is updated annually, and the last update was on 09/15/2023. However, the most recent year with complete data recorded is 2020. A few small countries do not contain relevant data, and their share was 0 in the dataset. We decided to exclude countries with empty data and import the rest of the dataset to show the disparity of developing renewable energy by detailed breakdown across countries and regions over the years.</p>
+<p>[Source: iea.org/data-and-statistics/data-product/sdg7-database]</p>
 </section>
-<section id="missing-value-analysis" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.2</span> Missing value analysis</h2>
+<section id="world-energy-investment-2023" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="world-energy-investment-2023"><span class="header-section-number">2.1.2</span> World Energy Investment 2023:</h3>
+<p>It is downloaded from IEA. It contains time series data of supply energy investment, including detailed breakdowns in fossil fuels, renewables, electricity networks, and other supplies, across different countries and regions from 2015 to 2023. This dataset is updated annually, and the last update was on 5/25/2023. It also contains data from the End-use side including efficiency. For our project, we will divide renewable energy by total energy in 2020 to create a column as a share of renewable energy investment proportion and import it along with the efficiency of using energy, to discover any effect on the share of renewable energy usage. No missing value is in selected columns.</p>
+<p>[Source: iea.org/data-and-statistics/data-product/world-energy-investment-2023-datafile-2#data-set]</p>
+</section>
+<section id="fossil-fuel-subsidies" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="fossil-fuel-subsidies"><span class="header-section-number">2.1.3</span> Fossil Fuel Subsidies:</h3>
+<p>It is downloaded from IEA. It contains time series data of subsidies to 4 fossil fuels, average subsidy rate, subsidy per capita, and total subsidy as a share of GDP across 55 countries in 2023. This dataset is updated annually, and the last update was on 10/24/2023. We decided to focus on the total subsidy column in 2020, and later divide it by GDP to create the feature, subsidy as a share of total GDP, to detect any influence on the share of modern renewables in corresponding countries in 2020. No missing value is in this column.</p>
+<p>[Source: iea.org/data-and-statistics/data-product/fossil-fuel-subsidies-database]</p>
+</section>
+<section id="electricity-access" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="electricity-access"><span class="header-section-number">2.1.4</span> Electricity Access:</h3>
+<p>It is downloaded from IEA. It contains time series data of the percentage of the population who get access to electricity across different countries and regions. This dataset is updated annually, and the last update was on 9/15/2023. While many countries have &gt;99% access in 2022, the Democratic Republic of the Congo only has 9%. Since it does not contain data in 2020, only data in 2015 and 2022 as nearby years, and the difference is negligible in almost all countries, we will import 2022 data to represent the situation in 2020, and discover any relationship to the share of modern renewables.</p>
+<p>[Source: iea.org/data-and-statistics/data-product/sdg7-database]</p>
+<p>###GDP per capita:</p>
+<p>It is downloaded from the website of the World Bank. It contains GDP per capita of 269 countries and defined regions from 1960 to 2022. This dataset is updated annually. Some countries like DPRK do not have data, and we will only import data of countries that have corresponding entries in the renewable energy share dataset, to find any relationship contributing to the share.</p>
+<p>[Source: data.worldbank.org/indicator/NY.GDP.PCAP.CD]</p>
+</section>
+</section>
+<section id="research-plan" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="research-plan"><span class="header-section-number">2.2</span> Research plan</h2>
+<p>The project comprises two main parts. In the first part, we aim to analyze the distribution of renewable energy usage across various countries and regions. This will be conducted on the Share of Modern Renewables in the Total Final Energy Consumption dataset. Initially, we will create a Cleveland dot plot to compare the renewable energy share of all listed countries, identifying if there are commonalities among those with high and low rankings. The dataset also includes entries for the World, Developed Regions, Developing Regions, and specific areas like Sub-Saharan Africa, Northern Europe, and Western Asia, which facilitates the creation of bar charts to depict disparities as of 2020. Besides, we plan to use time series graphs to track changes in renewable energy use from 2010 to 2020 in the selected regions.</p>
+<p>In examining the resource curse hypothesis, we will focus on countries rich in natural resources but plagued by corruption and conflicts, such as certain nations in Sub-Saharan Africa and Latin America. By comparing these with the rest of the world through Cleveland dot plots or bar charts, we try to uncover evidence of the resource curse in these areas.</p>
+<p>The second part of the project delves into the causes behind disparities in renewable energy usage, particularly between developed and developing countries. We’ll start by analyzing the correlation between GDP per capita and renewable energy share through scatter plots, assessing the influence of economic development on renewable energy share. Additional scatter plots will explore the relationship between renewable energy share and investment in renewables, as well as the impact of technology efficiency and fossil fuel subsidies on renewable energy development. We will test the hypothesis that countries with high investment, high efficiency, and low subsidies on traditional fossil fuels have higher motivation to develop renewable energy and hence have a higher share. In addition to showing the single variable relationship, we can create a static parallel coordinates plot to examine multivariable relationships, with distinct colors for developed, developing, and underdeveloped countries. Finally, to assess the influence of infrastructure on renewable energy development, since the electricity access dataset contains many countries with access &gt;99%, we can code electricity access and share of renewable energy into 5 categories: VeryHigh, High, Med, Low, ExtLow, and plot the heatmap to show the relationship.</p>
+<p>What should be noted is that since the most recent year with complete data in the renewable energy share dataset is 2020, we will only conduct analysis on data in 2020 from other datasets (except for time-series analysis).</p>
+</section>
+<section id="missing-value-analysis" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</h2>
+<p>Our analysis is mainly dependent on the renewable energy share dataset.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(redav)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(dplyr))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(tidyverse))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>raw_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"Share of modern renewables database.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add row and column names</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>raw_data[raw_data<span class="sc">==</span><span class="st">".."</span>] <span class="ot">=</span> <span class="cn">NA</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">data.frame</span>(raw_data, <span class="at">row.names=</span><span class="dv">1</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"X"</span>, <span class="st">"Y"</span>, <span class="fu">colnames</span>(data))</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">mutate_all</span>(data, <span class="cf">function</span>(x) <span class="fu">as.numeric</span>(<span class="fu">as.character</span>(x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># missing pattern by columns</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>colNA <span class="ot">=</span> <span class="fu">colSums</span>(<span class="fu">is.na</span>(data))</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>colNA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Y1990 Y1991 Y1992 Y1993 Y1994 Y1995 Y1996 Y1997 Y1998 Y1999 Y2000 Y2001 Y2002 
+    6     5     4     4     4     3     3     3     3     3     2     2     2 
+Y2003 Y2004 Y2005 Y2006 Y2007 Y2008 Y2009 Y2010 Y2011 Y2012 Y2013 Y2014 Y2015 
+    2     2     1     1     1     1     1     1     6     5     5     5     5 
+Y2016 Y2017 Y2018 Y2019 Y2020 Y2021 
+    5     5     5     5     5   193 </code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># missing pattern by rows</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>rowNA <span class="ot">=</span> <span class="fu">rowSums</span>(<span class="fu">is.na</span>(data))</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>rowNA <span class="ot">=</span> rowNA[rowNA <span class="sc">&gt;</span> <span class="dv">1</span>]</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(rowNA, <span class="at">decreasing=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  South Sudan    Montenegro French Guiana    Guadeloupe    Martinique 
+           23            16            11            11            11 
+      Mayotte       Réunion      Suriname      Cambodia       Eritrea 
+           11            11            11             6             3 
+      Namibia 
+            2 </code></pre>
+</div>
+</div>
+<p>By observing missing values by column and row, it can be noticed that data in 2021 has a lot of missing values (that is why we analyze on data in 2020). Besides, by looking into countries and regions with missing values greater than 1, we find that values of those entries are either missing in early times or in recent years. To be more specific, Montenegro does not have records from 1990 to 2004 and Guadeloupe does not have records from 2011 to 2021.</p>
+<p>Then, we draw the heatmap to get more insights. However, since there are 275 entries in the dataset, which cannot be fully presented in the graph, we choose to group countries and regions into different groups.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Heatmap</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sub_data <span class="ot">=</span> data[<span class="fu">seq</span>(<span class="dv">230</span>, <span class="dv">275</span>, <span class="dv">1</span>),<span class="fu">seq</span>(<span class="dv">23</span>, <span class="dv">32</span>,<span class="dv">1</span>)]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>tidy_data <span class="ot">&lt;-</span> sub_data <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="st">"id"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(key, value, <span class="sc">-</span>id) <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">missing=</span><span class="fu">ifelse</span>(<span class="fu">is.na</span>(value), <span class="st">"yes"</span>, <span class="st">"no"</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>tidy_data <span class="ot">&lt;-</span> tidy_data <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(key) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Std =</span> (value<span class="sc">-</span><span class="fu">mean</span>(value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))<span class="sc">/</span><span class="fu">sd</span>(value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> <span class="fu">ungroup</span>()</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(tidy_data, <span class="fu">aes</span>(<span class="at">x =</span> key, <span class="at">y =</span> <span class="fu">fct_rev</span>(id), <span class="at">fill =</span> Std)) <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="at">color =</span> <span class="st">"white"</span>) <span class="sc">+</span> </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">''</span>) <span class="sc">+</span> </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient2</span>(<span class="at">low =</span> <span class="st">"blue"</span>, <span class="at">mid =</span> <span class="st">"white"</span>, <span class="at">high =</span><span class="st">"yellow"</span>, <span class="at">na.value =</span> <span class="st">"black"</span>) <span class="sc">+</span> <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="data_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>It can be seen that missing data in 2021 is the most significant pattern. Besides insights of missing data, we notice that there exists some pattern for the renewable energy proportion, which will be discussed in the future analysis.</p>
+<p>Finally, we draw the pattern of those missing values.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sub_data <span class="ot">=</span> data[,<span class="fu">seq</span>(<span class="dv">23</span>, <span class="dv">32</span>,<span class="dv">1</span>)]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(sub_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Scale for y is already present.
+Adding another scale for y, which will replace the existing scale.
+Scale for y is already present.
+Adding another scale for y, which will replace the existing scale.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="data_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Due to the limitation of the graph size and our focus on recent trends, we plot the pattern of missing values from 2012 to 2021. There are mainly three patterns. First, nearly 65% of countries and regions do not have records for 2021. Second, 30% of them do not have missing data for the 10-year period. Third, a small proportion of them does not have any record during the period.</p>
+<p>For analysis other than the time-series one, we focus on year 2020 in the renewable energy share dataset, as well as other datasets. There are five countries or regions that have missing values in that year, and will be removed from the subsequent analysis. For other datasets we use, since we only extract a specific column from them, there is no missing value. However, when merging those datasets with the renewable energy share dataset, there can be cases that some countries do not exists in all of them. When situations like this occurs, those countries or regions in that specific analysis will be removed.</p>
 
 
 </section>
