@@ -26,7 +26,7 @@ It is downloaded from IEA. It contains time series data of the percentage of the
 
 [Source: iea.org/data-and-statistics/data-product/sdg7-database]
 
-###GDP per capita:
+### GDP per capita:
 
 It is downloaded from the website of the World Bank. It contains GDP per capita of 269 countries and defined regions from 1960 to 2022. This dataset is updated annually. Some countries like DPRK do not have data, and we will only import data of countries that have corresponding entries in the renewable energy share dataset, to find any relationship contributing to the share.
 
@@ -58,7 +58,7 @@ library(ggplot2)
 
 ```{r}
 # Read data
-raw_data <- read_excel("Share of modern renewables database.xlsx")
+raw_data <- read_excel("data/data_raw/Share of modern renewables database.xlsx", sheet="% of Modern Renewables in TFEC",skip=1)
 ```
 
 ```{r}

@@ -182,6 +182,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#world-energy-investment-2023" id="toc-world-energy-investment-2023" class="nav-link" data-scroll-target="#world-energy-investment-2023"><span class="header-section-number">2.1.2</span> World Energy Investment 2023:</a></li>
   <li><a href="#fossil-fuel-subsidies" id="toc-fossil-fuel-subsidies" class="nav-link" data-scroll-target="#fossil-fuel-subsidies"><span class="header-section-number">2.1.3</span> Fossil Fuel Subsidies:</a></li>
   <li><a href="#electricity-access" id="toc-electricity-access" class="nav-link" data-scroll-target="#electricity-access"><span class="header-section-number">2.1.4</span> Electricity Access:</a></li>
+  <li><a href="#gdp-per-capita" id="toc-gdp-per-capita" class="nav-link" data-scroll-target="#gdp-per-capita"><span class="header-section-number">2.1.5</span> GDP per capita:</a></li>
   </ul></li>
   <li><a href="#research-plan" id="toc-research-plan" class="nav-link" data-scroll-target="#research-plan"><span class="header-section-number">2.2</span> Research plan</a></li>
   <li><a href="#missing-value-analysis" id="toc-missing-value-analysis" class="nav-link" data-scroll-target="#missing-value-analysis"><span class="header-section-number">2.3</span> Missing value analysis</a></li>
@@ -229,7 +230,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="2.1.4" class="anchored" data-anchor-id="electricity-access"><span class="header-section-number">2.1.4</span> Electricity Access:</h3>
 <p>It is downloaded from IEA. It contains time series data of the percentage of the population who get access to electricity across different countries and regions. This dataset is updated annually, and the last update was on 9/15/2023. While many countries have &gt;99% access in 2022, the Democratic Republic of the Congo only has 9%. Since it does not contain data in 2020, only data in 2015 and 2022 as nearby years, and the difference is negligible in almost all countries, we will import 2022 data to represent the situation in 2020, and discover any relationship to the share of modern renewables.</p>
 <p>[Source: iea.org/data-and-statistics/data-product/sdg7-database]</p>
-<p>###GDP per capita:</p>
+</section>
+<section id="gdp-per-capita" class="level3" data-number="2.1.5">
+<h3 data-number="2.1.5" class="anchored" data-anchor-id="gdp-per-capita"><span class="header-section-number">2.1.5</span> GDP per capita:</h3>
 <p>It is downloaded from the website of the World Bank. It contains GDP per capita of 269 countries and defined regions from 1960 to 2022. This dataset is updated annually. Some countries like DPRK do not have data, and we will only import data of countries that have corresponding entries in the renewable energy share dataset, to find any relationship contributing to the share.</p>
 <p>[Source: data.worldbank.org/indicator/NY.GDP.PCAP.CD]</p>
 </section>
@@ -260,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Read data</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>raw_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"Share of modern renewables database.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>raw_data <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/data_raw/Share of modern renewables database.xlsx"</span>, <span class="at">sheet=</span><span class="st">"% of Modern Renewables in TFEC"</span>,<span class="at">skip=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
