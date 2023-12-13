@@ -1,0 +1,107 @@
+
+
+```{r}
+library(readxl)
+library(dplyr)
+library(writexl)
+```
+
+
+# Share of Modern Renewables dataset
+
+```{r}
+file_name <- "data_raw/Share of modern renewables database.xlsx"
+renew_data <- read_excel(file_name, sheet='% of Modern Renewables in TFEC', skip=1)
+renew_data[] <- lapply(renew_data, function(x) ifelse(x == '..', NA, x))
+```
+
+```{r}
+write_xlsx(renew_data, "data_process/renewable_percent_data.xlsx")
+```
+
+# World Energy Investment dataset
+
+```{r}
+file_name = "data_raw/WorldEnergyInvestment2023_DataFile.xlsx"
+invest_sheet <- excel_sheets(file_name)
+invest_sheet <- invest_sheet[2:(length(invest_sheet)-1)]
+```
+
+```{r}
+region_list <- c()
+percent_list <- c()
+for (s in invest_sheet) {
+  sheet_data <- read_excel(file_name, sheet=s, skip=3) %>%
+    select(c(s, "2020"))
+  colnames(sheet_data) <- c("Type", "Value")
+  renew_v <- filter(sheet_data, Type=="Renewables") %>%
+    pull("Value")
+  supply_v <- filter(sheet_data, Type=="Supply (by type)") %>%
+    pull("Value")
+  region_list <- c(region_list, s)
+  percent_list <- c(percent_list, renew_v[1]/supply_v)
+}
+
+# construct the dataframe
+percent_invest <- data.frame(
+  Region = region_list,
+  Renewable_Invest_Percent = percent_list
+)
+```
+
+```{r}
+write_xlsx(percent_invest, "data_process/invest_percent_data.xlsx")
+```
+
+# Fossil Fuel Consumption Subsidies dataset
+
+```{r}
+file_name <- "data_raw/Fossil fuel consumption subsidies.xlsx"
+subsidy <- read_excel(file_name, sheet="Indicators by country", skip=3)
+```
+
+```{r}
+write_xlsx(percent_invest, "data_process/subsidy_data.xlsx")
+```
+
+# Electricity Access dataset
+
+```{r}
+result <- data.frame(Region = character(0), "2022" = character(0))
+invest_sheet <- c("Africa", "Developing Asia", "Central and South America", "Middle East")
+
+for (s in invest_sheet) {
+  file_name <- "data_raw/WEO2023 - Electricity access database.xlsx"
+  elec_data <- read_excel(file_name, sheet=s, skip=6)
+  colnames(elec_data) <- c("Region", "2000", "2005", "2010", "2015", "2022", "2022_u", "2022_r", "2022_n")
+  sub_data <- select(elec_data, c("Region", "2022"))
+  result <- rbind(result, sub_data)
+}
+```
+
+```{r}
+write_xlsx(result, "data_process/electricity_data.xlsx")
+```
+
+
+# World GDP Data
+
+```{r}
+file_name <- "data_raw/World GDP database.xls"
+
+gdp_data <- read_excel(file_name, sheet="Data") %>%
+  select("Country Name", "2020") %>%
+  na.omit()
+```
+
+```{r}
+write_xlsx(gdp_data, "data_process/gdp_data.xlsx")
+```
+
+
+
+
+
+
+
+
