@@ -19,8 +19,6 @@ The scatter plot was designed in an interactive way to display countries in diff
   <button type="button" onclick="dev_eco()">Developing Economies</button>
 </div>
 
-
-<br><br/>
 <br><br/>
 
 The second scatter plot is similar to the first one, but gives a more detailed classification of countries. Most countries are divided into parts of representative economies or as a single economy. The comparison between different economies becomes more intuitive.
