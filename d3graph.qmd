@@ -1,6 +1,6 @@
 # Interactive graph
 
-Based on the figure of Time Series of Renewable Energy Percentage in the World, we found that the difference of renewable energy consumption between developed countries and developing countries was significant, where GDP per capita could be a useful measure. Therefore, our research presented the result in an interactive format using D3, focusing on the relationship between share of renewables in energy consumption and GDP per capita for different countries/regions.
+Based on the figure of Time Series of Renewable Energy Percentage in the World, we found that the difference of renewable energy consumption in different regions was significant, where GDP per capita could also be a useful measure. Therefore, our research presented the result in an interactive format using D3, focusing on the relationship between share of renewables in energy consumption and GDP per capita for different countries/regions.
 
 The scatter plot was designed in an interactive way to display countries in different groups. In the first graph, countries were classified into advanced economies and developing ones. By clicking on buttons below the graph, users can view the distribution of one category of countries independent of the other. Since countries of the same category are of the same color, it is straightforward to see the pattern without the need of legends.
 
@@ -19,11 +19,9 @@ The scatter plot was designed in an interactive way to display countries in diff
   <button type="button" onclick="dev_eco()">Developing Economies</button>
 </div>
 
-
-<br><br/>
 <br><br/>
 
-The second scatter plot is similar to the first one, but gives a more detailed classification of countries. Most countries are divided into parts of representative economies or as a single economy. The comparison between different economies becomes more intuitive.
+The second scatter plot is similar to the first one, but gives a more detailed breakdown of regions. Most countries are divided into parts of representative economies or as a single economy. The way of classification followed the pattern in the original investment dataset. The comparison between different economies becomes more intuitive.
 
 
 <div id="plot2">
