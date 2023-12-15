@@ -10,7 +10,7 @@ It is downloaded from the website of the International Energy Agency (IEA). It c
 
 ### World Energy Investment 2023:
 
-It is downloaded from IEA. It contains time series data of supply energy investment, including detailed breakdowns in fossil fuels, renewables, electricity networks, and other supplies, across different countries and regions from 2015 to 2023. This dataset is updated annually, and the last update was on 5/25/2023. It also contains data from the End-use side including efficiency. For our project, we will divide renewable energy by total energy in 2020 to create a column as a share of renewable energy investment proportion and import it along with the efficiency of using energy, to discover any effect on the share of renewable energy usage. No missing value is in selected columns.
+It is downloaded from IEA. It contains time series data of supply energy investment, including detailed breakdowns in fossil fuels, renewables, electricity networks, and other supplies, across different countries and regions from 2015 to 2023. This dataset is updated annually, and the last update was on 5/25/2023. For our project, we will divide renewable energy by total energy in 2020 to create a column as a share of renewable energy investment proportion, to discover any effect on the share of renewable energy usage. No missing value is in selected columns.
 
 [Source: iea.org/data-and-statistics/data-product/world-energy-investment-2023-datafile-2#data-set]
 
@@ -38,7 +38,7 @@ The project comprises two main parts. In the first part, we aim to analyze the d
 
 In examining the resource curse hypothesis, we will focus on countries rich in natural resources but plagued by corruption and conflicts, such as certain nations in Sub-Saharan Africa and Latin America. By comparing these with the rest of the world through Cleveland dot plots or bar charts, we try to uncover evidence of the resource curse in these areas.
 
-The second part of the project delves into the causes behind disparities in renewable energy usage, particularly between developed and developing countries. We'll start by analyzing the correlation between GDP per capita and renewable energy share through scatter plots, assessing the influence of economic development on renewable energy share. Additional scatter plots will explore the relationship between renewable energy share and investment in renewables, as well as the impact of technology efficiency and fossil fuel subsidies on renewable energy development. We will test the hypothesis that countries with high investment, high efficiency, and low subsidies on traditional fossil fuels have higher motivation to develop renewable energy and hence have a higher share. In addition to showing the single variable relationship, we can create a static parallel coordinates plot to examine multivariable relationships, with distinct colors for developed, developing, and underdeveloped countries. Finally, to assess the influence of infrastructure on renewable energy development, since the electricity access dataset contains many countries with access >99%, we can code electricity access and share of renewable energy into 5 categories: VeryHigh, High, Med, Low, ExtLow, and plot the heatmap to show the relationship.
+The second part of the project delves into the causes behind disparities in renewable energy usage, particularly between developed and developing countries. We'll start by analyzing the correlation between GDP per capita and renewable energy share through scatter plots, assessing the influence of economic development on renewable energy share. Additional scatter plots will explore the relationship between renewable energy share and investment in renewables, as well as the impact of technology efficiency and fossil fuel subsidies on renewable energy development. We will test the hypothesis that countries with high investment, high efficiency, and low subsidies on traditional fossil fuels have higher motivation to develop renewable energy and hence have a higher share. Finally, to assess the influence of infrastructure on renewable energy development, since the electricity access dataset contains many countries with access >99%, we can code electricity access and share of renewable energy into 5 categories: VeryHigh, High, Med, Low, ExtLow, and plot the heatmap to show the relationship.
 
 What should be noted is that since the most recent year with complete data in the renewable energy share dataset is 2020, we will only conduct analysis on data in 2020 from other datasets (except for time-series analysis).
 
@@ -48,12 +48,12 @@ Our analysis is mainly dependent on the renewable energy share dataset.
 
 ```{r}
 # Load libraries
-library(readxl)
-library(redav)
+suppressPackageStartupMessages(library(readxl))
+suppressPackageStartupMessages(library(redav))
 suppressPackageStartupMessages(library(dplyr))
-library(tidyr)
+suppressPackageStartupMessages(library(tidyr))
 suppressPackageStartupMessages(library(tidyverse))
-library(ggplot2)
+suppressPackageStartupMessages(library(ggplot2))
 ```
 
 ```{r}
@@ -110,4 +110,25 @@ plot_missing(sub_data)
 Due to the limitation of the graph size and our focus on recent trends, we plot the pattern of missing values from 2012 to 2021. There are mainly three patterns. First, nearly 65% of countries and regions do not have records for 2021. Second, 30% of them do not have missing data for the 10-year period. Third, a small proportion of them does not have any record during the period.
 
 For analysis other than the time-series one, we focus on year 2020 in the renewable energy share dataset, as well as other datasets. There are five countries or regions that have missing values in that year, and will be removed from the subsequent analysis. For other datasets we use, since we only extract a specific column from them, there is no missing value. However, when merging those datasets with the renewable energy share dataset, there can be cases that some countries do not exists in all of them. When situations like this occurs, those countries or regions in that specific analysis will be removed.
+
+## Limitations
+
+There exists several limitations in our data. First, the reference of countries/regions may be inconsistent in different datasets. Since there are many methods of classifying countries into groups, it is hard to compare those groups due to their inclusion relationship. For example, United States can be classified into North America (region) and Developed Countries (economics) at the same time. Therefore, it is time-consuming to classify hundreds of countries based on a unified standard. Moreover, representation of country names can also be different, which requires manual work to convert them into the same representation. For example, United Kingdom is also referred to as United Kingdom of Great Britain and Northern Ireland. After searching a lot of online resources, we derived a relatively common method of classifying countries in terms of their economic, regional, and political information. Detailed steps of data preprocessing can be found in `data/preprocess.qmd` and `data.qmd`.
+
+The second limitation is that some datasets do not have records in 2020. Since the focus of our analysis is on data in 2020, we need to use data in years near 2020 as an approximation, which may deviate from their true values.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

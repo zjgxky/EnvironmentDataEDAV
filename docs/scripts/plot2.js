@@ -32,7 +32,7 @@ d3.csv('https://raw.githubusercontent.com/zjgxky/EnvironmentDataEDAV/main/data/d
 
   var colorScale = d3.scaleOrdinal()
     .domain(data2.map(d => d.Region_Label))
-    .range(['#3498db', '#e74c3c', "#2ecc71", "#f39c12", "#9b59b6", "#1abc9c", "#d35400", "#34495e"]);
+    .range(['#3498db', '#e74c3c', "#F7DF1E", "#f39c12", "#9b59b6", "#1abc9c", "#d35400", "#34495e"]);
 
   // Add dots
   svg2.append('g')
