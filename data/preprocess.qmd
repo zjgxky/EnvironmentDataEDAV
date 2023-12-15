@@ -61,7 +61,7 @@ subsidy <- read_excel(file_name, sheet="Indicators by country", skip=3)
 ```
 
 ```{r}
-write_xlsx(percent_invest, "data_process/subsidy_data.xlsx")
+write_xlsx(subsidy, "data_process/subsidy_data.xlsx")
 ```
 
 # Electricity Access dataset
